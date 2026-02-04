@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PhotoShare Login</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #fafafa;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      display: flex;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .phone-preview {
+      width: 320px;
+      height: 600px;
+      border: 10px solid #000;
+      border-radius: 30px;
+      background: linear-gradient(135deg, #ff7a18, #ff0066, #833ab4);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .phone-preview::after {
+      content: "";
+      position: absolute;
+      inset: 20px;
+      background: #fff;
+      border-radius: 20px;
+    }
+
+    .login-box {
+      width: 360px;
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid #dbdbdb;
+      padding: 40px;
+      text-align: center;
+      margin-bottom: 12px;
+    }
+
+    .logo {
+      font-size: 36px;
+      font-weight: 600;
+      margin-bottom: 30px;
+      letter-spacing: 1px;
+    }
+
+    .logo span {
+      background: linear-gradient(45deg, #ff7a18, #ff0066, #833ab4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 8px;
+      border: 1px solid #dbdbdb;
+      border-radius: 4px;
+      background: #fafafa;
+      font-size: 14px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 8px;
+      border: none;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      background: linear-gradient(45deg, #ff7a18, #ff0066, #833ab4);
+      color: #fff;
+    }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 20px 0;
+      color: #999;
+      font-size: 12px;
+    }
+
+    .divider::before,
+    .divider::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: #dbdbdb;
+    }
+
+    .meta {
+      text-align: center;
+      font-size: 14px;
+      color: #666;
+      margin-top: 10px;
+    }
+
+    .meta b {
+      font-weight: 600;
+    }
+
+    .signup {
+      background: #fff;
+      border: 1px solid #dbdbdb;
+      padding: 20px;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .signup a {
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    @media (max-width: 900px) {
+      .phone-preview {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="phone-preview"></div>
+
+    <div class="login-box">
+      <div class="card">
+        <div class="logo"><span>PhotoShare</span></div>
+
+        <form onsubmit="login(event)">
+          <input type="text" placeholder="Username or email" required />
+          <input type="password" placeholder="Password" required />
+          <button type="submit">Log in</button>
+        </form>
+
+        <div class="divider">OR</div>
+
+        <p style="font-size:13px; color:#385185; cursor:pointer;">Log in with Social</p>
+        <p style="font-size:12px; margin-top:15px; color:#00376b;">Forgot password?</p>
+      </div>
+
+      <div class="signup">
+        Don't have an account? <a href="#">Sign up</a>
+      </div>
+
+      <div class="meta">From <b>MetaLike</b></div>
+    </div>
+  </div>
+
+  <script>
+    function login(e) {
+      e.preventDefault();
+      alert("Demo login page — connect backend to make it real.");
+    }
+  </script>
+</body>
+</html>
